@@ -49,12 +49,15 @@ public class Simulation {
 
         do {
             mynumber_increment++;
+
             detail_game = nextRound();
         } while (!detail_game && mynumber_increment < maximum);
 
         if (detail_game) {
             logger.log("player" + player);
+            logger.log("detail " + detail_game);
         } else logger.log("numero du guess: " + numberToGuess);
+
 
 
 
