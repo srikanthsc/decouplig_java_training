@@ -10,8 +10,11 @@ public class HumanPlayer implements Player{
 
     @Override
     public long askNextGuess() {
-        long guess = 0;
+
         Scanner scanner = new Scanner(System.in);
+        System.out.println(" type a value > ");
+        String userinput = scanner.nextLine();
+        long guess = Long.parseLong(userinput);
         return guess;
 
 
@@ -21,6 +24,8 @@ public class HumanPlayer implements Player{
 
     @Override
     public void respond(boolean lowerOrGreater) {
+        logger.log("input number was" + (lowerOrGreater ? "lower" : "greater"));
+
 
     }
 }
