@@ -16,7 +16,7 @@ public class HumanPlayer implements Player{
         String myuserinput = sc.nextLine();
         long guess = Long.parseLong(myuserinput);
         do {
-            logger.log("Guess number please? ");
+            logger.log("number please ");
             myuserinput = sc.nextLine();
             try {
                 guess = Long.parseLong(myuserinput);
