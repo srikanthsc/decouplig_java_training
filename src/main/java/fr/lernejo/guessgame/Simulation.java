@@ -9,18 +9,18 @@ import java.util.Date;
 public class Simulation {
 
     private final Logger logger = LoggerFactory.getLogger("simulation");
-    private final Player player;
-    private long numberToGuess;
+    private final Player player;//TODO add variable type
+    private long numberToGuess;//TODO add variable type
     private long maximum;
 
     public Simulation(Player player) {
-        this.player = player;
+        this.player = player;//TODO add variable type
         this.numberToGuess = 0;
         this.maximum = 0;
     }
 
     public void initialize(long numberToGuess, long maxTry) {
-        this.numberToGuess = numberToGuess;
+        this.numberToGuess = numberToGuess;//TODO add variable type
         this.maximum = maxTry;
     }
 
@@ -38,26 +38,27 @@ public class Simulation {
     }
 
     public void loopUntilPlayerSucceed() {
-        boolean continueGame;
-        int tryNumber = 0;
+        boolean game_continue;//TODO add variable type
+        int number_increment = 0;
 
-        long gameBegin = System.currentTimeMillis();
+        long starting_game = System.currentTimeMillis();
         do {
-            tryNumber++;
-            continueGame = nextRound();
-        } while (!continueGame && tryNumber < maximum);
-        long gameEnd = System.currentTimeMillis();
+            number_increment++;
+            game_continue = nextRound();
+        } while (!game_continue && number_increment < maximum);
+        long ending_game = System.currentTimeMillis();
 
-        long timeInGame = gameEnd - gameBegin;
+        long time_result = ending_game - starting_game;
 
-        if (continueGame) {
+        if (game_continue) {
             logger.log("well done!!!!!!!!!!!!!");
             logger.log("The number was " + numberToGuess);
-            logger.log("It took you " + tryNumber + " try again.");
+            logger.log("It took you");
+            logger.log(number_increment + " try again.");
         } else logger.log("not good " + numberToGuess);
 
-        SimpleDateFormat sdf = new SimpleDateFormat("mm:ss.SSS");
-        Date resultTime = new Date(timeInGame);
-        logger.log("Time in-game: " + sdf.format(resultTime));
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("mm:ss.SSS"); // pattern for date
+        Date resultTime = new Date(time_result);
+        logger.log("Time: " + simpleDateFormat.format(resultTime));
     }
 }

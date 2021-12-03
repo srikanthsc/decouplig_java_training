@@ -10,11 +10,22 @@ public class HumanPlayer implements Player{
 
     @Override
     public long askNextGuess() {
-
+        boolean attempt;
         Scanner scanner = new Scanner(System.in);
         System.out.println(" type a value > ");
-        String userinput = scanner.nextLine();
-        long guess = Long.parseLong(userinput);
+        String myuserinput = scanner.nextLine();
+        long guess = Long.parseLong(myuserinput);
+        do {
+            logger.log("Guess number please? ");
+            myuserinput = scanner.nextLine();
+            try {
+                guess = Long.parseLong(myuserinput);
+                attempt = false;
+            } catch (Exception e) {
+                logger.log("Enter a number.");
+                attempt = true;
+            }
+        } while (attempt);
         return guess;
 
 
