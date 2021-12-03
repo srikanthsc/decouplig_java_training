@@ -51,7 +51,7 @@ public class Simulation {
         long time_result = ending_game - starting_game;
 
         if (game_continue) {
-            logger.log("well done!!!!!!!!!!!!!");
+            logger.log("well done!");
             logger.log("The number was " + numberToGuess);
             logger.log("It took you");
             logger.log(number_increment + " try again.");

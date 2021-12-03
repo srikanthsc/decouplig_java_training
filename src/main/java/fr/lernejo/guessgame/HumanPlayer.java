@@ -5,19 +5,19 @@ import fr.lernejo.logger.Logger;
 import fr.lernejo.logger.LoggerFactory;
 
 public class HumanPlayer implements Player{
-
+    public static final Scanner sc = new Scanner(System.in);
     private final Logger logger = LoggerFactory.getLogger("player");
 
     @Override
     public long askNextGuess() {
         boolean attempt;
-        Scanner scanner = new Scanner(System.in);
+
         System.out.println(" type a value > ");
-        String myuserinput = scanner.nextLine();
+        String myuserinput = sc.nextLine();
         long guess = Long.parseLong(myuserinput);
         do {
             logger.log("Guess number please? ");
-            myuserinput = scanner.nextLine();
+            myuserinput = sc.nextLine();
             try {
                 guess = Long.parseLong(myuserinput);
                 attempt = false;
