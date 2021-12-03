@@ -23,17 +23,21 @@ public class ComputerPlayer implements Player {
 
     }
 
+     private long middle(){
+        return (min - max)/2;
+     }
+
 
 
     @Override
     public void respond(boolean lowerOrGreater) {
         if (!lowerOrGreater) {
-            logger.log("This number is lower.");
-            max = player;
+            logger.log("The number is lower.");
+
         } else {
-            logger.log("This number is higher.");
-            min = player;
+            logger.log("The number is greater.");
         }
+
     }
 }
 
